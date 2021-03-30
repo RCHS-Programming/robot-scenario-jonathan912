@@ -14,9 +14,11 @@ public class Robot extends Actor
      */
     public void act() 
     {
+        detectWallCollision();
+        detectBlockCollision();
         robotMovement();
     }
-        public void robotMovement()
+    public void robotMovement()
         {
                     if (Greenfoot.isKeyDown("w"))
         {
@@ -34,6 +36,20 @@ public class Robot extends Actor
         {
             setLocation( getX() +3, getY());
         }
+    }
+    public void detectWallCollision()
+    {
+       if (isTouching(Wall.class))
+       {
+           setLocation(25,50);
+       }
+    }
+    public void detectBlockCollision()
+    {
+        if (isTouching(Block.class))
+        {
+           setLocation(25,50);
         }
-    }    
+    }
+}    
 

@@ -20,6 +20,8 @@ public class RobotWorld extends World
         addObject(new Robot(), 25,50);
         
         addObject(new Block(), 400,175);
+        addObject(new Block(), 250,425);
+        addObject(new Block(), 550,325);
         
         addObject(new Wall(), 50, 175);
         addObject(new Wall(), 150, 175);
@@ -27,6 +29,11 @@ public class RobotWorld extends World
         addObject(new Wall(), 550, 175);
         addObject(new Wall(), 650, 175);
         addObject(new Wall(), 750, 175);
+        addObject(new Wall(), 250, 275);
+        addObject(new Wall(), 550, 475);
+        addObject(new Wall(), 550, 575);
+
+        addObject(new Wall(), 250, 575);
         
         addObject(new Home(), 767, 566);
         
@@ -35,9 +42,9 @@ public class RobotWorld extends World
         addObject(new Pizza(),Greenfoot.getRandomNumber(801), Greenfoot.getRandomNumber(101));
         addObject(new Pizza(),Greenfoot.getRandomNumber(801), Greenfoot.getRandomNumber(101));
         
-        addObject(new Pizza(), Greenfoot.getRandomNumber(801), Greenfoot.getRandomNumber(351)+250);
-        addObject(new Pizza(), Greenfoot.getRandomNumber(801), Greenfoot.getRandomNumber(351)+250);
-        addObject(new Pizza(), Greenfoot.getRandomNumber(801), Greenfoot.getRandomNumber(351)+250);
-        addObject(new Pizza(), Greenfoot.getRandomNumber(801), Greenfoot.getRandomNumber(351)+250);
+        addObject(new Pizza(), 30,265);
+        addObject(new Pizza(), 160, 265);
+        addObject(new Pizza(), 700, 265);
+        addObject(new Pizza(), 750, 465);
     }
 }
