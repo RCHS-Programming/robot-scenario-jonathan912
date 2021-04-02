@@ -46,5 +46,10 @@ public class RobotWorld extends World
         addObject(new Pizza(), 160, 265);
         addObject(new Pizza(), 700, 265);
         addObject(new Pizza(), 750, 465);
+        
+        showText("Lives: 3", 70, 540);
+        showText("Pizzas: 0", 70, 560);
+        showText("Score: 0", 70, 580);
+        
     }
 }

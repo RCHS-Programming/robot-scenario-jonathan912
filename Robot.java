@@ -13,6 +13,7 @@ public class Robot extends Actor
         private int Lives = 3;
         private int Score = 0;
         private int pizzaEaten = 0; 
+        private GreenfootImage Gameover= new GreenfootImage("gameover.png");
     /**
      * Act - do whatever the Robot wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -55,6 +56,7 @@ public class Robot extends Actor
            setLocation(25,50);
            Greenfoot.playSound("hurt.wav");
            removeLife();
+           showStatus();
        }
     }
     public void detectBlockCollision()
@@ -64,6 +66,7 @@ public class Robot extends Actor
            setLocation(25,50);
            Greenfoot.playSound("hurt.wav");
            removeLife();
+           showStatus();
         }
     }
     public void detectHome()
@@ -71,19 +74,17 @@ public class Robot extends Actor
         if (isTouching(Home.class))
         {
             setLocation(25,50);
-            if (pizzaEaten < 5)
-            {
-                Greenfoot.stop();
-            }
+            increaseScore();
         }
     }
     public void eatPizza()
     {
         Greenfoot.playSound("eat.wav");
-        removeTouching(Pizza.class);
         if (isTouching(Pizza.class))
         {
-            pizzaEaten=pizzaEaten + 1;
+             removeTouching(Pizza.class);
+             pizzaEaten = pizzaEaten + 1;
+             showStatus();
         }
     }
     public void Animate()
@@ -100,11 +101,31 @@ public class Robot extends Actor
     public void removeLife()
     {
       Lives = Lives - 1;
+      showStatus();
       testEndGame();
     }
     public void testEndGame()
     {
-        if (Lives < 0)
+        if (Lives == 0)
+        {
              Greenfoot.stop();
+        }
+    }
+    public void increaseScore()
+    {
+            if (pizzaEaten == 6)
+            {
+                Score = Score + 1;
+                pizzaEaten = 0;
+                showStatus();
+                Greenfoot.playSound("yipee.wav");
+                Greenfoot.stop();
+            }
+    }
+    public void showStatus()
+    {
+        getWorld().showText("Lives : "+Lives, 70,540);
+        getWorld().showText("Pizzas : "+pizzaEaten,70, 560);
+        getWorld().showText("Score : "+Score, 70, 580);
     }
 }
